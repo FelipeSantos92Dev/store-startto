@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:store/src/auth/components/custom_text_field.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -17,12 +18,19 @@ class SignInScreen extends StatelessWidget {
           ),
         ),
         Expanded(
-          child: Container(
-            decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.vertical(top: Radius.circular(45))),
-          ),
-        )
+            child: Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 32, vertical: 40),
+                decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius:
+                        BorderRadius.vertical(top: Radius.circular(45))),
+                child: Column(
+                  children: const [
+                    CustomTextField(),
+                    CustomTextField(),
+                  ],
+                ))),
       ]),
     );
   }
