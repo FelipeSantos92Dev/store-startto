@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -13,10 +14,55 @@ class SignInScreen extends StatelessWidget {
       backgroundColor: Colors.blue,
       body: Column(children: [
         Expanded(
-          child: Container(
-            color: Colors.blue,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // Nome do App
+              const Text.rich(
+                TextSpan(
+                    style: TextStyle(
+                      fontSize: 40,
+                    ),
+                    children: [
+                      TextSpan(
+                        text: 'Meus',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'Tickets',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ]),
+              ),
+
+              // Categorias
+              SizedBox(
+                height: 30,
+                child: DefaultTextStyle(
+                  style: const TextStyle(fontSize: 25),
+                  child: AnimatedTextKit(
+                    pause: Duration.zero,
+                    repeatForever: true,
+                    animatedTexts: [
+                      FadeAnimatedText('Eventos'),
+                      FadeAnimatedText('Ingressos'),
+                      FadeAnimatedText('Autenticação'),
+                      FadeAnimatedText('Relatórios'),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
+
+        // Formulário
         Container(
             padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 40),
             decoration: const BoxDecoration(
@@ -25,15 +71,20 @@ class SignInScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                // E-mail
                 const CustomTextField(
                   icon: Icons.email,
                   label: 'E-mail',
                 ),
+
+                // Senha
                 const CustomTextField(
                   icon: Icons.lock,
                   label: 'Senha',
                   isSecret: true,
                 ),
+
+                // Entrar
                 SizedBox(
                   height: 50,
                   child: ElevatedButton(
@@ -47,6 +98,8 @@ class SignInScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+
+                // Esqueceu a senha?
                 Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(
@@ -56,6 +109,8 @@ class SignInScreen extends StatelessWidget {
                         style: TextStyle(color: Colors.red),
                       )),
                 ),
+
+                // Divider
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: Row(
@@ -79,6 +134,8 @@ class SignInScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+
+                // Criar conta
                 SizedBox(
                   height: 50,
                   child: OutlinedButton(
