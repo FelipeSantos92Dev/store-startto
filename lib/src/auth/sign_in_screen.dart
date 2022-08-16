@@ -1,9 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:store/src/auth/components/custom_text_field.dart';
+import 'package:store/src/config/custom_colors.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -11,20 +9,20 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: CustomColors.customSwatchColor,
       body: Column(children: [
         Expanded(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // Nome do App
-              const Text.rich(
+              Text.rich(
                 TextSpan(
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 40,
                     ),
                     children: [
-                      TextSpan(
+                      const TextSpan(
                         text: 'Meus',
                         style: TextStyle(
                           color: Colors.white,
@@ -34,7 +32,7 @@ class SignInScreen extends StatelessWidget {
                       TextSpan(
                         text: 'Tickets',
                         style: TextStyle(
-                          color: Colors.black,
+                          color: CustomColors.customContrastColor,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
