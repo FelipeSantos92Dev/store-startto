@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:store/src/auth/components/custom_text_field.dart';
 import 'package:store/src/config/custom_colors.dart';
 
@@ -10,61 +7,87 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: CustomColors.customSwatchColor,
-      body: Column(
-        children: [
-          const Expanded(
-            child: Center(
-              child: Text(
-                'Cadastro',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 35,
+      body: SingleChildScrollView(
+        child: SizedBox(
+          height: size.height,
+          width: size.width,
+          child: Column(
+            children: [
+              const Expanded(
+                child: Center(
+                  child: Text(
+                    'Cadastro',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 35,
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ),
 
-          // Formulário
-          Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 32,
-              vertical: 40,
-            ),
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.vertical(
-                top: Radius.circular(45),
-              ),
-            ),
-            child: Column(
-              children: const [
-                CustomTextField(
-                  icon: Icons.email,
-                  label: 'E-mail',
+              // Formulário
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 32,
+                  vertical: 40,
                 ),
-                CustomTextField(
-                  icon: Icons.lock,
-                  label: 'Senha',
-                  isSecret: true,
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.vertical(
+                    top: Radius.circular(45),
+                  ),
                 ),
-                CustomTextField(
-                  icon: Icons.person,
-                  label: 'Nome',
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    const CustomTextField(
+                      icon: Icons.email,
+                      label: 'E-mail',
+                    ),
+                    const CustomTextField(
+                      icon: Icons.lock,
+                      label: 'Senha',
+                      isSecret: true,
+                    ),
+                    const CustomTextField(
+                      icon: Icons.person,
+                      label: 'Nome',
+                    ),
+                    const CustomTextField(
+                      icon: Icons.phone,
+                      label: 'Celular',
+                    ),
+                    const CustomTextField(
+                      icon: Icons.file_copy,
+                      label: 'CPF',
+                    ),
+                    SizedBox(
+                      height: 50,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18),
+                          ),
+                        ),
+                        onPressed: () {},
+                        child: const Text(
+                          'Cadastrar Usuário',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
                 ),
-                CustomTextField(
-                  icon: Icons.phone,
-                  label: 'Celular',
-                ),
-                CustomTextField(
-                  icon: Icons.file_copy,
-                  label: 'CPF',
-                ),
-              ],
-            ),
-          )
-        ],
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
