@@ -1,3 +1,4 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:store/src/config/custom_colors.dart';
 
@@ -32,11 +33,24 @@ class HomeTab extends StatelessWidget {
           ),
         ),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.shopping_cart,
-              color: CustomColors.customSwatchColor,
+          Padding(
+            padding: const EdgeInsets.only(top: 15, right: 15),
+            child: GestureDetector(
+              onTap: () {},
+              child: Badge(
+                badgeColor: Colors.red,
+                badgeContent: const Text(
+                  '2',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 12,
+                  ),
+                ),
+                child: Icon(
+                  Icons.shopping_cart,
+                  color: CustomColors.customSwatchColor,
+                ),
+              ),
             ),
           ),
         ],
