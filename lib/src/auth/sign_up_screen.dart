@@ -15,76 +15,95 @@ class SignUpScreen extends StatelessWidget {
         child: SizedBox(
           height: size.height,
           width: size.width,
-          child: Column(
+          child: Stack(
             children: [
-              const Expanded(
-                child: Center(
-                  child: Text(
-                    'Cadastro',
-                    style: TextStyle(
+              Column(
+                children: [
+                  const Expanded(
+                    child: Center(
+                      child: Text(
+                        'Cadastro',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 35,
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  // Formulário
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 32,
+                      vertical: 40,
+                    ),
+                    decoration: const BoxDecoration(
                       color: Colors.white,
-                      fontSize: 35,
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(45),
+                      ),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        const CustomTextField(
+                          icon: Icons.email,
+                          label: 'E-mail',
+                        ),
+                        const CustomTextField(
+                          icon: Icons.lock,
+                          label: 'Senha',
+                          isSecret: true,
+                        ),
+                        const CustomTextField(
+                          icon: Icons.person,
+                          label: 'Nome',
+                        ),
+                        const CustomTextField(
+                          icon: Icons.phone,
+                          label: 'Celular',
+                        ),
+                        const CustomTextField(
+                          icon: Icons.file_copy,
+                          label: 'CPF',
+                        ),
+                        SizedBox(
+                          height: 50,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18),
+                              ),
+                            ),
+                            onPressed: () {},
+                            child: const Text(
+                              'Cadastrar Usuário',
+                              style: TextStyle(
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+              Positioned(
+                left: 10,
+                top: 10,
+                child: SafeArea(
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    icon: const Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.white,
                     ),
                   ),
                 ),
               ),
-
-              // Formulário
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 32,
-                  vertical: 40,
-                ),
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.vertical(
-                    top: Radius.circular(45),
-                  ),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    const CustomTextField(
-                      icon: Icons.email,
-                      label: 'E-mail',
-                    ),
-                    const CustomTextField(
-                      icon: Icons.lock,
-                      label: 'Senha',
-                      isSecret: true,
-                    ),
-                    const CustomTextField(
-                      icon: Icons.person,
-                      label: 'Nome',
-                    ),
-                    const CustomTextField(
-                      icon: Icons.phone,
-                      label: 'Celular',
-                    ),
-                    const CustomTextField(
-                      icon: Icons.file_copy,
-                      label: 'CPF',
-                    ),
-                    SizedBox(
-                      height: 50,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18),
-                          ),
-                        ),
-                        onPressed: () {},
-                        child: const Text(
-                          'Cadastrar Usuário',
-                          style: TextStyle(
-                            fontSize: 18,
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              )
             ],
           ),
         ),
