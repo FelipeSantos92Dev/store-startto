@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:store/src/config/custom_colors.dart';
 import 'package:store/src/models/item_model.dart';
+import 'package:store/src/pages/common_widgets/quantity_widget.dart';
 import 'package:store/src/services/utils_services.dart';
 
 class ProductScreen extends StatelessWidget {
@@ -59,11 +60,7 @@ class ProductScreen extends StatelessWidget {
                                   fontSize: 27, fontWeight: FontWeight.bold),
                             ),
                           ),
-                          Container(
-                            height: 30,
-                            width: 70,
-                            color: Colors.red,
-                          )
+                          QuantityWidget()
                         ],
                       ),
 
