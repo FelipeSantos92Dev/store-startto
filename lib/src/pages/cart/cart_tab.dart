@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:store/src/config/custom_colors.dart';
 import 'package:store/src/services/utils_services.dart';
+import 'package:store/src/config/app_data.dart' as appData;
 
 class CartTab extends StatelessWidget {
   CartTab({Key? key}) : super(key: key);
@@ -17,12 +18,13 @@ class CartTab extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const Expanded(
-            child: Placeholder(
-              color: Colors.red,
-            ),
-          ),
-          const SizedBox(height: 20),
+          Expanded(
+              child: ListView.builder(
+            itemCount: appData.cartItems.length,
+            itemBuilder: (_, index) {
+              return Text(appData.cartItems[index].item.itemName);
+            },
+          )),
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
