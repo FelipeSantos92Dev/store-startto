@@ -91,9 +91,9 @@ List<CartItemModel> cartItems = [
 ];
 
 UserModel user = UserModel(
-  celular: '91 99319-9400',
+  phone: '91 99319-9400',
   cpf: '00196594235',
   email: 'felipe@felipe.com',
   name: 'Felipe Santos',
-  senha: 'Felipe13',
+  password: 'Felipe13',
 );
