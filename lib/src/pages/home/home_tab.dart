@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:store/src/config/custom_colors.dart';
 import 'package:store/src/config/app_data.dart' as appData;
 import 'package:store/src/pages/home/components/item_tile.dart';
+import 'package:store/src/services/utils_services.dart';
 
 import 'components/category_tile.dart';
 
@@ -15,6 +16,7 @@ class HomeTab extends StatefulWidget {
 
 class _HomeTabState extends State<HomeTab> {
   String selectedCategory = 'Combo';
+  final UtilsServices utilsServices = UtilsServices();
 
   @override
   Widget build(BuildContext context) {
