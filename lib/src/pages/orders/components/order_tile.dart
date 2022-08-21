@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:store/src/models/cart_item_model.dart';
 import 'package:store/src/models/order_model.dart';
+import 'package:store/src/pages/common_widgets/payment_dialog.dart';
 import 'package:store/src/pages/orders/components/order_status_widget.dart';
 import 'package:store/src/services/utils_services.dart';
 
@@ -85,7 +86,16 @@ class OrderTile extends StatelessWidget {
             Visibility(
               visible: order.status == 'pending_payment',
               child: ElevatedButton.icon(
-                onPressed: () {},
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (_) {
+                      return PaymentDialog(
+                        order: order,
+                      );
+                    },
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
