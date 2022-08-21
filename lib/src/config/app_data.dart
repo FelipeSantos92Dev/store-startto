@@ -80,7 +80,7 @@ List<CartItemModel> cartItems = [
   ),
   CartItemModel(
     item: mango,
-    quantity: 8,
+    quantity: 1,
   ),
   CartItemModel(
     item: guava,
